@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
-const BACKEND_URL = process.env.BACKEND_URL
+const BACKEND_URL = 'https://spotmusic-backend-opsorxshma-uc.a.run.app/'
 
 function App() {
    	const [data, setData] = useState([]);
