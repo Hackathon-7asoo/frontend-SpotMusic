@@ -44,11 +44,10 @@ jobs:
       - name: Deploy to Cloud RUN
         id: 'deploy'
         uses: 'google-github-actions/deploy-cloudrun@v0'
-        env:
-          BACKEND_URL: ${{ secrets.BACKEND_URL }}
         with:
           service: 'spotmusic-frontend'
           image: ${{ secrets.ARTIFACT_REGISTRY }}/spotmusic-app:latest
+          env_vars: BACKEND_URL=${{ secrets.BACKEND_URL }}
 
       - name: 'Use output'
         run: 'curl "${{ steps.deploy.outputs.url }}"'
